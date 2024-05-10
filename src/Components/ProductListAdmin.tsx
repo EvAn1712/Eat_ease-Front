@@ -41,7 +41,7 @@ const productList: Product[] = [
     // Ajoutez d'autres produits ici si nécessaire
 ];
 
-const ProductList: React.FC = () => {
+const ProductListAdmin: React.FC = () => {
     const [quantities, setQuantities] = useState<{[key: number]: number}>({});
 
     const handleIncrement = (productId: number) => {
@@ -58,33 +58,75 @@ const ProductList: React.FC = () => {
         }));
     };
 
+    const styles = {
+        productListPage: {
+            width: '80%',
+            margin: '0 auto',
+            padding: '2rem 0',
+        },
+        productList: {
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '1rem',
+        },
+        productItem: {
+            display: 'flex',
+            flexDirection: 'column',
+            border: '1px solid #ccc',
+            borderRadius: '4px',
+            padding: '1rem',
+        },
+        fieldTitle: {
+            fontWeight: 'bold',
+            textDecoration: 'underline',
+        },
+        incrementButton: {
+            padding: '0.5rem 1rem',
+            fontSize: '1rem',
+            color: '#fff',
+            backgroundColor: '#007bff',
+            border: 'none',
+            borderRadius: '4px',
+            cursor: 'pointer',
+            margin: '0.5rem 0',
+        },
+        decrementButton: {
+            padding: '0.5rem 1rem',
+            fontSize: '1rem',
+            color: '#fff',
+            backgroundColor: '#dc3545',
+            border: 'none',
+            borderRadius: '4px',
+            cursor: 'pointer',
+            margin: '0.5rem 0',
+        },
+    };
+
     return (
-        <div>
+        <div style={styles.productListPage}>
             <h2>Liste des produits</h2>
-            <ul>
+            <div style={styles.productList}>
                 {productList.map(product => (
-                    <li key={product.id}>
+                    <div key={product.id} style={styles.productItem}>
                         <h3>{product.name}</h3>
-                        <p>Prix: {product.price} €</p>
-                        <p>Description: {product.description}</p>
-                        <p>Type de produit: {product.typeProduit}</p>
-                        <p>Allergènes: {product.listIdAllergenes.join(', ')}</p>
-                        <p>Menus: {product.listIdMenu.join(', ')}</p>
-                        <button onClick={() => console.log(`Modifier le produit ${product.id}`)}>Modifier</button>
-                        <br/><br/>
-                        <button onClick={() => console.log(`Supprimer le produit ${product.id}`)}>Supprimer</button>
-                        <br/><br/>
+                        <p><span style={styles.fieldTitle}>Prix:</span> {product.price} €</p>
+                        <p><span style={styles.fieldTitle}>Description:</span> {product.description}</p>
+                        <p><span style={styles.fieldTitle}>Type de produit:</span> {product.typeProduit}</p>
+                        <p><span style={styles.fieldTitle}>Allergènes:</span> {product.listIdAllergenes.join(', ')}</p>
+                        <p><span style={styles.fieldTitle}>Menus:</span> {product.listIdMenu.join(', ')}</p>
+                        <button onClick={() => console.log(`Modifier le produit ${product.id}`)} style={styles.incrementButton}>Modifier</button>
+                        <button onClick={() => console.log(`Supprimer le produit ${product.id}`)} style={styles.decrementButton}>Supprimer</button>
                         <div>
                             Quantité en stock:
                             <button onClick={() => handleDecrement(product.id)}>-</button>
                             {quantities[product.id] || 0}
                             <button onClick={() => handleIncrement(product.id)}>+</button>
                         </div>
-                    </li>
+                    </div>
                 ))}
-            </ul>
+            </div>
         </div>
     );
 };
 
-export default ProductList;
+export default ProductListAdmin;
