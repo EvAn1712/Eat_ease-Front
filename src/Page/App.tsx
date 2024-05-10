@@ -13,6 +13,7 @@ const App: React.FC = () => {
                 <li><Link to="/create-product">Créer un produit</Link></li>
                 <li><Link to="/commandes-en-cours">Commandes en Cours</Link></li>
                 <li><Link to="/passer-commande">Passer Commande</Link></li>
+                <li><Link to="/list-product">Liste des produits</Link></li>
             </ul>
         </div>
     );

@@ -11,6 +11,7 @@ import Favoris from './Components/favoris';
 import ProductCreationPage from './Components/CreateProduct';
 import CommandesEnCours from "./Components/CommandesEnCours";
 import PasserCommande from "./Components/PasserCommande";
+import ListProduct from "./Components/ProductListAdmin";
 
 const RoutesComponent: React.FC = () => {
     return (
@@ -23,6 +24,7 @@ const RoutesComponent: React.FC = () => {
                 <Route path="/create-product" element={<ProductCreationPage />} />
                 <Route path="/commandes-en-cours" element={<CommandesEnCours />} />
                 <Route path="/passer-commande" element={<PasserCommande />} />
+                <Route path="/list-product" element={<ListProduct/>} />
             </Routes>
         </Router>
     );
