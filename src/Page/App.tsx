@@ -1,3 +1,4 @@
+// App.tsx
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -10,6 +11,8 @@ const App: React.FC = () => {
                 <li><Link to="/historique">Historique</Link></li>
                 <li><Link to="/favoris">Favoris</Link></li>
                 <li><Link to="/create-product">Créer un produit</Link></li>
+                <li><Link to="/commandes-en-cours">Commandes en Cours</Link></li>
+                <li><Link to="/passer-commande">Passer Commande</Link></li>
             </ul>
         </div>
     );

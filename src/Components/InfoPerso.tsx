@@ -1,10 +1,8 @@
 function InfoPerso() {
-    // Supposons que vous avez les informations personnelles de l'utilisateur
     const user = {
         firstName: 'John',
         lastName: 'Doe',
         email: 'john.doe@example.com',
-        // Ajoutez d'autres informations personnelles si nécessaire
     };
 
     return (
